@@ -1,0 +1,10 @@
+function [Depth,NumberOfSamples,NumberOfTraces] = QuicklookEMR(Data,dt,vice,clim1,clim2,FigNum)
+    
+    [NumberOfSamples NumberOfTraces] = size(Data);
+    Time = (1:NumberOfSamples)*dt;Depth=Time/2*vice;
+    figure(1)
+    imagesc(1:NumberOfSamples,Depth,Data);
+    caxis([clim1,clim2]);colormap(bone);
+    xlabel('Depth (m)');ylabel
+
+end

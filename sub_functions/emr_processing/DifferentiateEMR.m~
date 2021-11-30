@@ -1,0 +1,9 @@
+function [DataOut, DepthOut] = DifferentiateEMR(Data,NF,Fpass,Fstop,1)
+
+     
+ d = designfilt('differentiatorfir','FilterOrder',Nf, ...
+        'PassbandFrequency',Fpass,'StopbandFrequency',Fstop, ...
+        'SampleRate',Fs);
+ FilterDelay = mean(grpdelay(d))
+ DataOut = filter(d,Data); 
+ DataOut(1:2*FilterDelay,:) = [];DepthF = Depth(1:end-FilterDelay);DepthF(1:FilterDelay) = [];
